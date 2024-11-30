@@ -1,0 +1,25 @@
+﻿@model Task12.Models.CalcModel
+
+<h2>Model Binding (Separate model)</h2>
+
+@using (Html.BeginForm("ModelBindingSeparateModel", "Calc", FormMethod.Post))
+{
+    <div>
+        <label for="FirstNumber">First Number:</label>
+        @Html.TextBoxFor(m => m.Num1)
+    </div>
+    <div>
+        <label for="Operation">Operation:</label>
+        @Html.DropDownListFor(m => m.Operation, new SelectList(new[] { "+", "-", "*", "/" }))
+    </div>
+    <div>
+        <label for="SecondNumber">Second Number:</label>
+        @Html.TextBoxFor(m => m.Num2)
+    </div>
+    <button type="submit">Calculate</button>
+}
+
+@if (ViewBag.Result != null)
+{
+    <h3>Result: @ViewBag.Result</h3>
+}

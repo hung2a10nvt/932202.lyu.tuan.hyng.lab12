@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Model Binding (Parameters)";
+}
+
+<h2>Model Binding (Parameters)</h2>
+
+@using (Html.BeginForm("ModelBindingParameters", "Calc", FormMethod.Post))
+{
+    <div>
+        <label for="FirstNumber">First Number:</label>
+        <input type="text" name="num1" />
+    </div>
+    <div>
+        <label for="Operation">Operation:</label>
+        <select name="operation">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+    </div>
+    <div>
+        <label for="SecondNumber">Second Number:</label>
+        <input type="text" name="num2" />
+    </div>
+    <button type="submit">Calculate</button>
+}
+
+@if (ViewBag.Result != null)
+{
+    <h3>Result: @ViewBag.Result</h3>
+}
